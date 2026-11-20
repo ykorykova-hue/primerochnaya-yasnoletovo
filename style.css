@@ -118,3 +118,13 @@
  #helen .offer { grid-template-columns:minmax(0,1fr); }
  #helen .helen-photos { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
 }
+
+.polyana-video video{width:min(100%,340px);height:auto;aspect-ratio:464/848;max-height:none;object-fit:contain;margin-inline:auto;border-radius:12px}
+.polyana-media{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;margin-top:32px}
+.polyana-media>a{min-width:0}
+.polyana-media img{border-radius:12px}
+.polyana-media .plan{margin:0}
+.polyana-media .plan img{max-height:520px;object-fit:contain}
+.polyana-details{margin-top:24px;padding:22px;border:1px solid var(--line);border-radius:12px}
+.polyana-details summary{cursor:pointer;font-weight:650;font-size:1.1rem}
+@media(max-width:720px){.polyana-media{grid-template-columns:1fr}}
