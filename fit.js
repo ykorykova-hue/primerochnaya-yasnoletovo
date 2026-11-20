@@ -6,7 +6,8 @@ const formatRubles = new Intl.NumberFormat('ru-RU', {
 const homes = [
   { name: 'Готовый дом в Яснолетово', price: 14088800, bedrooms: 3, anchor: 'title', build: false },
   { name: 'SHiLO 124 в Зелёных кварталах', price: 12700000, bedrooms: 3, anchor: 'shilo', build: true },
-  { name: 'Готовый дом в Лесных улочках', price: 16000000, bedrooms: 3, anchor: 'lesnye', build: false, repair: true }
+  { name: 'Готовый дом в Лесных улочках', price: 16000000, bedrooms: 3, anchor: 'lesnye', build: false, repair: true },
+  { name: 'HELEN HOUSE 120 в КП КраСоты', price: 27100000, bedrooms: 3, anchor: 'helen', build: false, finished: true }
 ];
 
 const promotionEnds = new Date('2027-01-01T00:00:00+05:00');
@@ -35,7 +36,7 @@ function compareHome(home, preferences, today) {
   if (home.repair && preferences.moveIn === 'now') {
     unknowns.push('Дату готовности к заселению нужно уточнить.');
   }
-  if (!home.repair && preferences.moveIn === 'now') {
+  if (!home.repair && !home.finished && preferences.moveIn === 'now') {
     differences.push(home.build
       ? 'Потребуются строительство и чистовая отделка.'
       : 'Перед переездом потребуется чистовая отделка.');
@@ -62,7 +63,7 @@ form.addEventListener('submit', (event) => {
     const title = document.createElement('strong');
     title.textContent = home.name;
     const summary = document.createElement('p');
-    const status = home.repair ? 'готовый дом' : home.build ? 'под строительство' : 'White Box';
+    const status = home.finished ? 'с чистовой отделкой' : home.repair ? 'готовый дом' : home.build ? 'под строительство' : 'White Box';
     summary.textContent = [
       price === null ? 'Цена по запросу' : formatRubles.format(price),
       home.build && price !== null ? 'под строительство, цена по акции' : status
