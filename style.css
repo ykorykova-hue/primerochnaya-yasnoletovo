@@ -178,3 +178,19 @@ header nav{flex-wrap:wrap;justify-content:flex-end;gap:12px 20px}
 header nav .compare-link{color:#fffdf5;padding:10px 16px;font-size:1rem}
 #fit{scroll-margin-top:20px}
 @media(max-width:720px){header nav .compare-link{display:inline-block;font-size:.9rem}}
+
+/* Alternating full-width property backgrounds */
+.property-card{width:100%;margin:0;padding:64px max(24px,calc((100% - 1160px)/2));background:#f5f8f0;border-bottom:0}
+#shilo.property-card,#helen.property-card{background:#e5eedf}
+@media(max-width:720px){.property-card{padding:36px 16px}}
+
+header.wrap{width:100%;padding:21px max(24px,calc((100% - 1160px)/2));background:#dce9dc}
+.about-band,footer{background:#dce9dc}
+@media(max-width:720px){header.wrap{padding:21px 16px}}
+
+/* Pistachio header bands and alternating cream property sections */
+header.wrap{background:#dce9dc}
+.about-band{background:#e8efdf}
+footer{background:#dce9dc}
+.property-card{background:#fffaf1}
+#shilo.property-card,#helen.property-card{background:#f0e5d3}
