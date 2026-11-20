@@ -194,3 +194,5 @@ header.wrap{background:#dce9dc}
 footer{background:#dce9dc}
 .property-card{background:#fffaf1}
 #shilo.property-card,#helen.property-card{background:#f0e5d3}
+
+#barnhouse.property-card{background:#f0e5d3}.barn-gallery{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:24px}.barn-gallery img{aspect-ratio:4/3}

@@ -8,7 +8,8 @@ const homes = [
   { name: 'SHiLO 124 в Зелёных кварталах', price: 12700000, bedrooms: 3, anchor: 'shilo', build: true },
   { name: 'Готовый дом в Лесных улочках', price: 16000000, bedrooms: 3, anchor: 'lesnye', build: false, repair: true },
   { name: 'HELEN HOUSE 120 в КП КраСоты', price: 27100000, bedrooms: 3, anchor: 'helen', build: false, finished: true },
-  { name: 'Дом-шале 146,8 м², с. Патруши', price: 13900000, bedrooms: 3, anchor: 'polyana', build: false, readinessUnknown: true }
+  { name: 'Дом-шале 146,8 м², с. Патруши', price: 13900000, bedrooms: 3, anchor: 'polyana', build: false, readinessUnknown: true },
+  { name: 'BARNHOUSE 130, 149 м², КП КраСоты', price: 14500000, bedrooms: 3, anchor: 'barnhouse', build: false, finished: true }
 ];
 
 const promotionEnds = new Date('2027-01-01T00:00:00+05:00');
