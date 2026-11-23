@@ -10,7 +10,8 @@ const homes = [
   { name: 'HELEN HOUSE 120 в КП КраСоты', price: 27100000, bedrooms: 3, anchor: 'helen', build: false, finished: true },
   { name: 'Дом-шале 146,8 м², с. Патруши', price: 13900000, bedrooms: 3, anchor: 'polyana', build: false, readinessUnknown: true },
   { name: 'BARNHOUSE 130, 149 м², КП КраСоты', price: 14500000, bedrooms: 3, anchor: 'barnhouse', build: false, finished: true },
-  { name: 'Дом 136 м² в КП Европа, Берёзовский', price: 14000000, bedrooms: 3, anchor: 'europa', build: false }
+  { name: 'Дом 136 м² в КП Европа, Берёзовский', price: 14000000, bedrooms: 3, anchor: 'europa', build: false },
+  { name: 'Дом 180 м² в КП Зелёные кварталы 3', price: 13400000, bedrooms: 3, anchor: 'green180', build: false }
 ];
 
 const promotionEnds = new Date('2027-01-01T00:00:00+05:00');
