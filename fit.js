@@ -8,11 +8,18 @@ const homes = [
   { name: 'SHiLO 124 в Зелёных кварталах', price: 12700000, bedrooms: 3, anchor: 'shilo', build: true },
   { name: 'Готовый дом в Лесных улочках', price: 16000000, bedrooms: 3, anchor: 'lesnye', build: false, repair: true },
   { name: 'HELEN HOUSE 120 в КП КраСоты', price: 27100000, bedrooms: 3, anchor: 'helen', build: false, finished: true },
-  { name: 'Дом-шале 146,8 м², с. Патруши', price: 13900000, bedrooms: 3, anchor: 'polyana', build: false, readinessUnknown: true },
+  { name: 'Дом-шале 146,8 м², с. Патруши', price: 13900000, bedrooms: 3, anchor: 'polyana', build: false, finished: true },
   { name: 'BARNHOUSE 130, 149 м², КП КраСоты', price: 14500000, bedrooms: 3, anchor: 'barnhouse', build: false, finished: true },
   { name: 'Дом 136 м² в КП Европа, Берёзовский', price: 14000000, bedrooms: 3, anchor: 'europa', build: false },
-  { name: 'Дом 180 м² в КП Зелёные кварталы 3', price: 13400000, bedrooms: 3, anchor: 'green180', build: false }
+  { name: 'Дом 180 м² в КП Зелёные кварталы 3', price: 13400000, bedrooms: 3, anchor: 'green180', build: false },
+  { name: 'Дом М3, 140 м² в КП Рассоха Парк', price: 12700000, bedrooms: 3, anchor: 'rassoha', build: false, repair: true }
 ];
+
+const rassohaOfferEnds = new Date('2026-12-16T00:00:00+05:00');
+if (new Date() >= rassohaOfferEnds) {
+ document.querySelector('#rassoha-price').textContent = 'Цена по запросу';
+ document.querySelector('#rassoha-offer').hidden = true;
+}
 
 const promotionEnds = new Date('2027-01-01T00:00:00+05:00');
 const lesnyeOfferEnds = new Date('2026-12-01T00:00:00+05:00');
@@ -25,7 +32,7 @@ if (new Date() >= promotionEnds) {
 }
 
 function budgetPrice(home, today) {
-  return home.build && today >= promotionEnds ? null : home.price;
+  return (home.build && today >= promotionEnds) || (home.anchor === 'rassoha' && today >= rassohaOfferEnds) ? null : home.price;
 }
 
 function compareHome(home, preferences, today) {
@@ -68,7 +75,7 @@ form.addEventListener('submit', (event) => {
     const title = document.createElement('strong');
     title.textContent = home.name;
     const summary = document.createElement('p');
-    const status = home.readinessUnknown ? 'комплектация по запросу' : home.finished ? 'с чистовой отделкой' : home.repair ? 'готовый дом' : home.build ? 'под строительство' : 'White Box';
+    const status = home.readinessUnknown ? 'комплектация по запросу' : home.finished ? (home.anchor === 'helen' ? 'под тапочки' : 'с чистовой отделкой') : home.repair ? (home.anchor === 'rassoha' ? 'под ключ, срок отделки по согласованию' : 'под ключ, дату готовности нужно уточнить') : home.build ? 'под строительство' : 'White Box';
     summary.textContent = [
       price === null ? 'Цена по запросу' : formatRubles.format(price),
       home.build && price !== null ? 'под строительство, цена по акции' : status
