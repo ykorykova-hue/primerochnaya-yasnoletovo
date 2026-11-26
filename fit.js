@@ -12,7 +12,8 @@ const homes = [
   { name: 'BARNHOUSE 130, 149 м², КП КраСоты', price: 14500000, bedrooms: 3, anchor: 'barnhouse', build: false, finished: true },
   { name: 'Дом 136 м² в КП Европа, Берёзовский', price: 14000000, bedrooms: 3, anchor: 'europa', build: false },
   { name: 'Дом 180 м² в КП Зелёные кварталы 3', price: 13400000, bedrooms: 3, anchor: 'green180', build: false },
-  { name: 'Дом М3, 140 м² в КП Рассоха Парк', price: 12700000, bedrooms: 3, anchor: 'rassoha', build: false, repair: true }
+  { name: 'Дом М3, 140 м² в КП Рассоха Парк', price: 12700000, bedrooms: 3, anchor: 'rassoha', build: false, repair: true },
+  { name: 'Дом в посёлке Бобровский', price: 8000000, bedrooms: 2, anchor: 'bobrovsky', build: false, finished: true, finishLabel: 'под ключ' }
 ];
 
 const rassohaOfferEnds = new Date('2026-12-16T00:00:00+05:00');
@@ -39,7 +40,9 @@ function compareHome(home, preferences, today) {
   const price = budgetPrice(home, today);
   const differences = [];
   const unknowns = [];
-  if (price === null) unknowns.push('Срок акции прошёл. Текущую цену нужно уточнить.');
+  if (price === null) unknowns.push(home.price === null
+    ? 'Цену нужно уточнить.'
+    : 'Срок акции прошёл. Текущую цену нужно уточнить.');
   if (price !== null && preferences.budget < price) {
     differences.push(`Выше вашего бюджета на ${formatRubles.format(price - preferences.budget)}.`);
   }
@@ -75,7 +78,7 @@ form.addEventListener('submit', (event) => {
     const title = document.createElement('strong');
     title.textContent = home.name;
     const summary = document.createElement('p');
-    const status = home.readinessUnknown ? 'комплектация по запросу' : home.finished ? (home.anchor === 'helen' ? 'под тапочки' : 'с чистовой отделкой') : home.repair ? (home.anchor === 'rassoha' ? 'под ключ, срок отделки по согласованию' : 'под ключ, дату готовности нужно уточнить') : home.build ? 'под строительство' : 'White Box';
+    const status = home.readinessUnknown ? 'комплектация по запросу' : home.finished ? (home.finishLabel ?? (home.anchor === 'helen' ? 'под тапочки' : 'с чистовой отделкой')) : home.repair ? (home.anchor === 'rassoha' ? 'под ключ, срок отделки по согласованию' : 'под ключ, дату готовности нужно уточнить') : home.build ? 'под строительство' : 'White Box';
     summary.textContent = [
       price === null ? 'Цена по запросу' : formatRubles.format(price),
       home.build && price !== null ? 'под строительство, цена по акции' : status
