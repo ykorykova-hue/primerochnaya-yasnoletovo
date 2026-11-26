@@ -198,3 +198,15 @@ footer{background:#dce9dc}
 #barnhouse.property-card{background:#f0e5d3}.barn-gallery{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:24px}.barn-gallery img{aspect-ratio:4/3}
 
 #green180.property-card,#bobrovsky.property-card{background:#f0e5d3}
+
+.property-card-video{position:relative;isolation:isolate;overflow:hidden;border-top:2px solid #8a9b83}
+.property-card-video>.property-background{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover;object-position:center;border-radius:0;opacity:.56;z-index:-2;pointer-events:none}
+.property-card-video::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(255,250,241,.84),rgba(255,250,241,.14) 72%);pointer-events:none}
+.property-card-video>.property-overview{grid-template-columns:minmax(0,1fr);min-height:clamp(380px,48vw,590px)}
+.property-card-video .property-copy{max-width:710px;padding-top:38px}
+.property-card-video>.property-video-toggle{position:absolute;top:24px;right:max(24px,calc((100% - 1160px)/2));background:#fffaf1;min-height:44px}
+@media(max-width:720px){
+  .property-card-video>.property-background{object-position:58% center}
+  .property-card-video::before{background:rgba(255,250,241,.45)}
+  .property-card-video>.property-video-toggle{top:16px;right:16px}
+}
