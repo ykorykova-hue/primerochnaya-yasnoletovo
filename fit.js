@@ -13,7 +13,8 @@ const homes = [
   { name: 'Дом 136 м² в КП Европа, Берёзовский', price: 14000000, bedrooms: 3, anchor: 'europa', build: false },
   { name: 'Дом 180 м² в КП Зелёные кварталы 3', price: 13400000, bedrooms: 3, anchor: 'green180', build: false },
   { name: 'Дом М3, 140 м² в КП Рассоха Парк', price: 12700000, bedrooms: 3, anchor: 'rassoha', build: false, repair: true },
-  { name: 'Дом в посёлке Бобровский', price: 8000000, bedrooms: 2, anchor: 'bobrovsky', build: false, finished: true, finishLabel: 'под ключ' }
+  { name: 'Дом в посёлке Бобровский', price: 8000000, bedrooms: 2, anchor: 'bobrovsky', build: false, finished: true, finishLabel: 'под ключ' },
+  { name: 'Дом 115 м² в квартале Гранат, КП Заповедник', price: 17800000, bedrooms: 3, anchor: 'granat', build: false, finished: true, finishLabel: 'дизайнерский ремонт', gas: true }
 ];
 
 const rassohaOfferEnds = new Date('2026-12-16T00:00:00+05:00');
@@ -56,7 +57,7 @@ function compareHome(home, preferences, today) {
       : 'Перед переездом потребуется чистовая отделка.');
   }
   if (home.readinessUnknown && preferences.moveIn === 'now') unknowns.push('Готовность к заселению нужно уточнить.');
-  if (preferences.gas) unknowns.push('Наличие газа нужно уточнить.');
+  if (preferences.gas && !home.gas) unknowns.push('Наличие газа нужно уточнить.');
   return { home, price, differences, unknowns };
 }
 
