@@ -15,7 +15,8 @@ const homes = [
   { name: 'Дом М3, 140 м² в КП Рассоха Парк', price: 12700000, bedrooms: 3, anchor: 'rassoha', build: false, repair: true },
   { name: 'Дом в посёлке Бобровский', price: 8000000, bedrooms: 2, anchor: 'bobrovsky', build: false, finished: true, finishLabel: 'под ключ' },
   { name: 'Дом 115 м² в квартале Гранат, КП Заповедник', price: 17800000, bedrooms: 3, anchor: 'granat', build: false, finished: true, finishLabel: 'дизайнерский ремонт', gas: true },
-  { name: 'Дом 153 м² в Зелёных Кварталах, 2-я очередь', price: 12200000, bedrooms: 4, anchor: 'zk153', build: false }
+  { name: 'Дом 153 м² в Зелёных Кварталах, 2-я очередь', price: 12200000, bedrooms: 4, anchor: 'zk153', build: false },
+  { name: 'Дом 198,3 м² с гаражом, Зелёные Кварталы, 3-я очередь', price: 13490000, bedrooms: 4, anchor: 'zk198', build: false }
 ];
 
 const rassohaOfferEnds = new Date('2026-12-16T00:00:00+05:00');
