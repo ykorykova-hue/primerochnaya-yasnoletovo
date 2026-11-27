@@ -17,7 +17,7 @@ const homes = [
   { name: 'Дом 115 м² в квартале Гранат, КП Заповедник', price: 17800000, bedrooms: 3, anchor: 'granat', build: false, finished: true, finishLabel: 'дизайнерский ремонт', gas: true },
   { name: 'Дом 153 м² · Зелёные Кварталы · Тюменский тракт · 2-я очередь', price: 12200000, bedrooms: 4, anchor: 'zk153', build: false },
   { name: 'Дом 198,3 м² с гаражом · Зелёные Кварталы · Тюменский тракт', price: 13490000, bedrooms: 4, anchor: 'zk198', build: false },
-  { name: 'Дом 152 м² с гаражом · Дарвин, Тюменский тракт / Кадниково, Челябинский тракт', price: 9890000, bedrooms: 3, anchor: 'dar152', build: false, finished: true, gasAtBoundary: true }
+  { name: 'Дом 152 м² с гаражом · Дарвин, Тюменский тракт / Кадниково, Челябинский тракт', price: 9690000, bedrooms: 3, anchor: 'dar152', build: false, finished: true, gasAtBoundary: true }
 ];
 
 const rassohaOfferEnds = new Date('2026-12-16T00:00:00+05:00');
